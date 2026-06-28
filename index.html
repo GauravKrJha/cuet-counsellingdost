@@ -171,34 +171,6 @@
   .pad{padding:84px 0}
   .tinted{background:var(--bg-tint)}
 
-  /* ============================================================
-     FEATURED PRODUCT
-     ============================================================ */
-  .featured-card{
-    display:grid;grid-template-columns:1fr 1.05fr;gap:0;background:#fff;border-radius:var(--radius-lg);
-    overflow:hidden;border:1px solid var(--line-strong);box-shadow:var(--shadow);
-  }
-  .featured-media{position:relative;background:linear-gradient(160deg,#f6f1ff,#ece4ff);padding:40px;display:flex;align-items:center;justify-content:center}
-  .featured-media img{border-radius:16px;box-shadow:var(--shadow);width:100%}
-  .best-badge{
-    position:absolute;top:22px;left:22px;z-index:2;display:inline-flex;align-items:center;gap:7px;
-    background:linear-gradient(135deg,#ffce4d,#f4b400);color:#5a3d00;font-family:'Sora';font-weight:700;font-size:12.5px;
-    padding:8px 14px;border-radius:999px;box-shadow:0 8px 20px rgba(244,180,0,.35);letter-spacing:.02em;
-  }
-  .best-badge svg{width:15px;height:15px}
-  .featured-body{padding:46px 44px;display:flex;flex-direction:column;justify-content:center}
-  .featured-body .eyebrow{margin-bottom:18px}
-  .featured-body h3{font-size:clamp(26px,3vw,34px);font-weight:800;margin-bottom:14px}
-  .featured-body .desc{font-size:16px;color:var(--text);margin-bottom:24px}
-  .feat-list{display:grid;gap:11px;margin-bottom:28px}
-  .feat-list li{display:flex;align-items:flex-start;gap:11px;list-style:none;font-size:15px;color:var(--ink);font-weight:500}
-  .feat-list .tick{flex:0 0 auto;width:22px;height:22px;border-radius:7px;background:var(--bg-tint-2);color:var(--purple);display:grid;place-items:center;margin-top:1px}
-  .feat-list .tick svg{width:13px;height:13px}
-  .price-block{display:flex;align-items:baseline;gap:12px;margin-bottom:24px}
-  .price-block .was{font-size:19px;color:var(--muted);text-decoration:line-through;font-weight:600}
-  .price-block .now{font-family:'Sora';font-weight:800;font-size:38px;color:var(--ink)}
-  .price-block .save{font-size:12.5px;font-weight:700;color:var(--gold-deep);background:#fff7e0;border:1px solid #ffe6a3;padding:5px 11px;border-radius:999px}
-  .featured-actions{display:flex;gap:13px;flex-wrap:wrap}
 
   /* ============================================================
      PRODUCT GRID
@@ -329,8 +301,6 @@
   @media (max-width:980px){
     .hero-grid{grid-template-columns:1fr;gap:46px}
     .hero-visual{order:-1;max-width:480px;margin:0 auto}
-    .featured-card{grid-template-columns:1fr}
-    .featured-media{padding:30px}
     .about-grid{grid-template-columns:1fr;gap:50px}
     .about-photo{max-width:360px;margin:0 auto}
     .modal{grid-template-columns:1fr;max-height:88vh}
@@ -344,7 +314,6 @@
     .nav-links.show a{padding:13px 24px;width:100%}
     .grid{grid-template-columns:1fr;gap:20px}
     .about-blocks{grid-template-columns:1fr}
-    .featured-body{padding:34px 26px}
     .contact-card{padding:42px 24px}
     .foot-grid{grid-template-columns:1fr}
     .pad{padding:64px 0}
@@ -368,7 +337,7 @@
       </div>
     </a>
     <nav class="nav-links" id="navLinks">
-      <a href="#featured">Predictor</a>
+     
       <a href="#products">Products</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
@@ -411,20 +380,6 @@
           <div><b>Official Data</b><small>100% accurate · CSAS rules built-in</small></div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================== FEATURED PRODUCT ============================== -->
-<section class="pad tinted" id="featured">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Flagship Product</span>
-      <h2>The tool every DU aspirant needs</h2>
-      <p>One product, built to answer one stressful question with certainty.</p>
-    </div>
-    <div class="featured-card reveal" id="featuredCard">
-      <!-- populated by JS from the product marked featured:true -->
     </div>
   </div>
 </section>
@@ -524,7 +479,6 @@
       </div>
       <div class="foot-col">
         <h4>Quick Links</h4>
-        <a href="#featured">Predictor</a>
         <a href="#products">Products</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
@@ -573,7 +527,7 @@
      thumbnail        -> square image for the product card  ("" = placeholder)
      cover            -> wide/large image for the popup       ("" = placeholder)
      badge            -> "best" | "free" | "new" | ""        (corner tag)
-     featured         -> true on ONE product = shown big in the Flagship section
+    
      description      -> one short line on the card
      longDescription  -> full paragraph in the popup
      features         -> bullet points shown in the popup
@@ -593,7 +547,7 @@ const products = [
     thumbnail: ASSETS.thumb,
     cover: ASSETS.cover,
     badge: "best",
-    featured: true,
+    featured: false,
     description: "Enter your CUET marks and instantly see which DU colleges you can actually get.",
     longDescription: "India's most advanced DU College Predictor. It computes your Delhi University merit the exact way the university does, subject by subject, and shows only the programmes you are genuinely eligible for under the CSAS rules. No guesswork, no generic cutoff lists, just the colleges your score can really unlock.",
     features: [
@@ -607,7 +561,7 @@ const products = [
     price: "₹25",
     buyLink: "https://topmate.io/gaurav_kumar388/2174110"
   },
-  
+
   {
     title: "DU CSAS Registration & Documents Guide",
     thumbnail: "product4thumb.png",
@@ -647,6 +601,7 @@ const products = [
     buyLink: "https://topmate.io/gaurav_kumar388/2175028"
   },
 
+  
   {
     title: "How to Calculate DU Score",
     /* Replace product image here */
@@ -657,6 +612,7 @@ const products = [
     description: "Step-by-step guide to calculate your DU merit score correctly.",
     longDescription: "Most students get their own DU merit wrong before counselling even starts. This free, step-by-step guide walks you through exactly how Delhi University converts your CUET marks into a merit score, including the different schemes for B.A./B.Com versus B.Sc courses, so you know your real standing before you choose.",
     features: [
+      "Plain-English breakdown of DU's merit formula",
       "Covers best-language + best-3-domain logic",
       "Explains the 1000 vs 750 scoring schemes",
       "Worked examples you can follow along with",
@@ -729,34 +685,7 @@ function renderProducts(){
   `).join('');
 }
 
-/* ---------- render featured (flagship) product ---------- */
-function renderFeatured(){
-  const p = products.find(x=>x.featured) || products[0];
-  const wrap = document.getElementById('featuredCard');
-  const idx = products.indexOf(p);
-  const feats = (p.features||[]).map(f=>`<li><span class="tick">${ICONS.check}</span>${f}</li>`).join('');
-  const buyLabel = p.price === "FREE" ? "Get It Free" : "Buy Now";
-  wrap.innerHTML = `
-    <div class="featured-media">
-      <div class="best-badge">${ICONS.trophy} Best Seller</div>
-      ${mediaHTML(p.cover, p.title)}
-    </div>
-    <div class="featured-body">
-      <span class="eyebrow">Flagship · DU Predictor</span>
-      <h3>${p.title}</h3>
-      <p class="desc">${p.longDescription}</p>
-      <ul class="feat-list">${feats}</ul>
-      <div class="price-block">
-        ${p.originalPrice?`<span class="was">${p.originalPrice}</span>`:''}
-        <span class="now">${p.price}</span>
-        <span class="save">Save 75%</span>
-      </div>
-      <div class="featured-actions">
-        <button class="btn btn-ghost" data-view="${idx}">View Details</button>
-        <a class="btn btn-primary" href="${p.buyLink}">${buyLabel}</a>
-      </div>
-    </div>`;
-}
+
 
 /* ---------- modal ---------- */
 const modal = document.getElementById('modal');
@@ -831,7 +760,6 @@ function initReveal(){
 
 /* ---------- init ---------- */
 renderTrust();
-renderFeatured();
 renderProducts();
 initReveal();
 </script>
